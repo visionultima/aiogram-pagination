@@ -1,0 +1,9 @@
+{
+  "callback_stack":
+  {
+      "storage": "sqlite",
+      "cache_time_limit": 3600,
+      "max_pagination_depth": null,
+      "redis_db": 1
+  }
+}
