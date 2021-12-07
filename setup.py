@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="aiogram-pagination",
-    version="0.1.0",
+    version="0.1.12",
     author="altroncode",
     author_email="cosmosx1328@gmail.com",
     description="Module for deep pagination in an aiogram bot",
@@ -21,11 +21,11 @@ setuptools.setup(
         "Operating System :: OS Independent",
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
-        'Topic :: Software Development :: Libraries ::'
+        'Topic :: Software Development :: Libraries'
 
     ],
-    install_requires=[
-        'aiogram>=2.16',
-        'bestconfig>=1.3.5',
-    ]
+    # install_requires=[
+    #     'aiogram>=2.16',
+    #     'bestconfig>=1.3.5',
+    # ]
 )
