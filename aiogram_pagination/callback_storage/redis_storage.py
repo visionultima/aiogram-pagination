@@ -3,7 +3,7 @@ from datetime import datetime
 from redis import Redis
 
 from .abstract_storage import AbstractCallbackStorage
-from ..data.loader import configurator
+from ..data.config import configurator
 from ..utils.counter import Counter
 
 

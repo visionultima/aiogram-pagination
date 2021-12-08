@@ -1,6 +1,7 @@
 import time
 
-from ..data.loader import configurator
+from ..data.config import configurator
+from ..data.loader import storages
 
 
 class CallbackDaemon:
@@ -8,7 +9,7 @@ class CallbackDaemon:
     def __init__(self):
         self.configurator = configurator
         self.cache_time_limit = self.configurator.config['cache_time_limit']
-        self.callback_storage = self.configurator.get_storage(self.configurator.config)
+        self.callback_storage = storages.get_storage(self.configurator.config)
 
     def run_callback_daemon(self):
         while True:

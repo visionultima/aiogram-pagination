@@ -1,6 +1,6 @@
 from .abstract_callback_stack import AbstractCallbackStack
 from .callback_stack import CallbackStackFactory, CallbackStack
-from ..data.loader import configurator
+from ..data.config import configurator
 
 
 class SimpleCallbackStack(AbstractCallbackStack):

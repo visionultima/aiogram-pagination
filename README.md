@@ -18,6 +18,7 @@ the aiogram-pagination module
 
 ```python
 from aiogram_pagination.utils.callback_stack_factory import CallbackStackFactory
+
 cb = CallbackStackFactory('foo', 'bar')
 ```
 
@@ -25,9 +26,9 @@ You can use both the simple version of the callback stack
 and the version with abbreviated callbacks.
 
 Simple version:
+
 ```python
 from aiogram_pagination.callback_stack import SimpleCallbackStack
-
 
 callback_stack = SimpleCallbackStack(callback_data={'foo': 0, 'bar': 1, 'previous': ''},
                                      callback_factory=cb)
@@ -40,7 +41,6 @@ Version with abbreviation:
 
 ```python
 from aiogram_pagination.callback_stack import AbbreviatedCallbackStack
-
 
 callback_stack = AbbreviatedCallbackStack(
     callback_data={'foo': 0, 'bar': 1, 'previous': ''},
@@ -67,7 +67,7 @@ Example:
 {
   "callback_stack":
   {
-      "storage": "sqlite",
+      "storage": "redis",
       "cache_time_limit": 3600,
       "max_pagination_depth": false,
       "redis_db": 1
