@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from utils.singlton import AbstractSingleton
+from ..utils.singlton import AbstractSingleton
 
 
 class AbstractCallbackStorage(ABC, metaclass=AbstractSingleton):

@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from callback_storage.abstract_storage import AbstractCallbackStorage
-from utils.counter import Counter
-from utils.db_api.schemas import Callback
+from .abstract_storage import AbstractCallbackStorage
+from ..utils.counter import Counter
+from ..utils.db_api.schemas import Callback
 
 
 class SQLiteCallbackStorage(AbstractCallbackStorage):

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from utils.callback_stack_factory import CallbackStackFactory
+from ..utils.callback_stack_factory import CallbackStackFactory
 
 
 class AbstractCallbackStack(ABC):

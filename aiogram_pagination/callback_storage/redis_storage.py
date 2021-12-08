@@ -2,9 +2,9 @@ from datetime import datetime
 
 from redis import Redis
 
-from callback_storage.abstract_storage import AbstractCallbackStorage
-from data.loader import configurator
-from utils.counter import Counter
+from .abstract_storage import AbstractCallbackStorage
+from ..data.loader import configurator
+from ..utils.counter import Counter
 
 
 class RedisCallbackStorage(AbstractCallbackStorage):

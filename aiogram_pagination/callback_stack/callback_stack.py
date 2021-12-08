@@ -1,4 +1,4 @@
-from utils.callback_stack_factory import CallbackStackFactory
+from ..utils.callback_stack_factory import CallbackStackFactory
 
 
 class CallbackStack:

@@ -1,6 +1,6 @@
 import time
 
-from data.loader import configurator
+from ..data.loader import configurator
 
 
 class CallbackDaemon:

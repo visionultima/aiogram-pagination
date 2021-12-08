@@ -17,7 +17,7 @@ To create callbacks you need to use the callback factory from
 the aiogram-pagination module
 
 ```python
-from callback_stack import CallbackStackFactory
+from aiogram_pagination.utils.callback_stack_factory import CallbackStackFactory
 cb = CallbackStackFactory('foo', 'bar')
 ```
 

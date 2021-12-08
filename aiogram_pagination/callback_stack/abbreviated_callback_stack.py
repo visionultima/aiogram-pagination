@@ -1,6 +1,7 @@
-from callback_stack.abstract_callback_stack import AbstractCallbackStack
-from callback_stack.callback_stack import CallbackStackFactory, CallbackStack
-from data import config
+from .abstract_callback_stack import AbstractCallbackStack
+from .callback_stack import CallbackStack
+from ..utils.callback_stack_factory import CallbackStackFactory
+from ..data.loader import configurator
 
 
 class AbbreviatedCallbackStack(AbstractCallbackStack):
@@ -8,7 +9,7 @@ class AbbreviatedCallbackStack(AbstractCallbackStack):
     def __init__(self, callback_data: dict, callback_factory: CallbackStackFactory):
         self.callback_stack = CallbackStack(callback_data, callback_factory)
         self.previous_callback_data = self.callback_stack.generate_previous_callback_data()
-        self.configurator = config.configurator
+        self.configurator = configurator
         self.config = self.configurator.config
         self.callback_storage = self.configurator.get_storage(self.config)
 
