@@ -18,7 +18,7 @@ class RedisCallbackStorage(AbstractCallbackStorage):
         self._pointers = list()
 
     def add_callback(self, callback: str):
-        if self._check_callback_existing(callback):
+        if not self._check_callback_existing(callback):
             self._redis.hset(callback, mapping=self._prepare_data())
 
         use_count = self._redis.hget(callback, 'use_count')
