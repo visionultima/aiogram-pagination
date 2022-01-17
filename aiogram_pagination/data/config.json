@@ -2,6 +2,7 @@
   "callback_stack":
   {
       "storage": "sqlite",
+      "compression": false,
       "cache_time_limit": 3600,
       "max_pagination_depth": null,
       "redis_db": 1

@@ -1,17 +1,17 @@
 from datetime import datetime
 
-from .abstract_storage import AbstractCallbackStorage
-from ..utils.counter import Counter
+from .base_storage import BaseCallbackStorage
+from aiogram_pagination.utils.compression.counter import Counter
 
 
-class BuiltinCallbackStorage(AbstractCallbackStorage):
+class BuiltinCallbackStorage(BaseCallbackStorage):
 
     def __init__(self):
         self._storage = dict()
         self._counter = Counter()
         self._pointers = list()
 
-    def add_callback(self, callback: str):
+    def add_callback(self, callback: str) -> None:
         if not self._check_callback_existing(callback):
             abbreviation = self._pointers.pop() if len(self._pointers) > 0 else self._counter.count
             self._storage[callback] = dict()
@@ -24,7 +24,7 @@ class BuiltinCallbackStorage(AbstractCallbackStorage):
             self._storage[callback]['updated_at'] = datetime.now()
             self._storage[callback]['use_counter'] += 1
 
-    def remove_callback(self, callback: str):
+    def remove_callback(self, callback: str) -> None:
         if self._check_callback_existing(callback):
             self._storage[callback]['use_counter'] -= 1
             if self._storage[callback]['use_counter'] <= 0:
@@ -41,7 +41,7 @@ class BuiltinCallbackStorage(AbstractCallbackStorage):
     def _check_callback_existing(self, callback: str) -> bool:
         return callback in self._storage
 
-    def on_callbacks_exceeding_time_limit(self, cache_time_limit: int):
+    def on_callbacks_exceeding_time_limit(self, cache_time_limit: int) -> None:
         for callback in self._storage:
             callback_time = datetime.now().timestamp() - self._storage[callback]['updated_at'].timesatmp()
             if callback_time > cache_time_limit:

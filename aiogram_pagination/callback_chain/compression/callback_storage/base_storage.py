@@ -1,9 +1,9 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 
-from ..utils.singlton import AbstractSingleton
+from aiogram_pagination.utils.misc.singlton import AbstractSingleton
 
 
-class AbstractCallbackStorage(ABC, metaclass=AbstractSingleton):
+class BaseCallbackStorage(metaclass=AbstractSingleton):
 
     @abstractmethod
     def add_callback(self, callback: str):

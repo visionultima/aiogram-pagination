@@ -1,4 +1,4 @@
-from ..utils.custom_notation import CustomNotation
+from aiogram_pagination.utils.compression.custom_notation import CustomNotation
 
 
 class Counter:

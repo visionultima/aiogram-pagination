@@ -2,12 +2,12 @@ from datetime import datetime
 
 from redis import Redis
 
-from .abstract_storage import AbstractCallbackStorage
-from ..data.config import configurator
-from ..utils.counter import Counter
+from .base_storage import BaseCallbackStorage
+from aiogram_pagination.data.loader import configurator
+from aiogram_pagination.utils.compression.counter import Counter
 
 
-class RedisCallbackStorage(AbstractCallbackStorage):
+class RedisCallbackStorage(BaseCallbackStorage):
 
     def __init__(self):
         self._configurator = configurator
@@ -67,7 +67,7 @@ class RedisCallbackStorage(AbstractCallbackStorage):
         return self._redis.hgetall(callback)
 
     def _check_callback_existing(self, callback: str) -> bool:
-        return self._redis.exists(callback)
+        return bool(self._redis.exists(callback))
 
     def _check_abbreviation_existing(self, abbreviation: str) -> bool:
         return bool(self.get_callback(abbreviation))

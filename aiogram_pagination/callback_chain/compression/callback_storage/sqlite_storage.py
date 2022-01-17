@@ -1,11 +1,11 @@
 from datetime import datetime
 
-from .abstract_storage import AbstractCallbackStorage
-from ..utils.counter import Counter
-from ..utils.db_api.schemas import Callback
+from .base_storage import BaseCallbackStorage
+from aiogram_pagination.utils.compression.counter import Counter
+from aiogram_pagination.utils.db_api.schemas import Callback
 
 
-class SQLiteCallbackStorage(AbstractCallbackStorage):
+class SQLiteCallbackStorage(BaseCallbackStorage):
 
     def __init__(self):
         self.table = Callback

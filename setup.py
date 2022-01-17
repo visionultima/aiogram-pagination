@@ -27,7 +27,7 @@ setup(
     ],
     include_package_data=False,
     install_requires=[
-        'aiogram>=2.16',
-        'bestconfig>=1.3.5',
+        'aiogram^2.18',
+        'bestconfig^1.3.5',
     ]
 )

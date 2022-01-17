@@ -1,6 +1,6 @@
 import time
 
-from ..data.config import configurator
+from ..data.loader import configurator
 from ..data.loader import storages
 
 
@@ -14,4 +14,4 @@ class CallbackDaemon:
     def run_callback_daemon(self):
         while True:
             self.callback_storage.on_callbacks_exceeding_time_limit(self.cache_time_limit)
-            time.sleep(3600)
+            time.sleep(self.cache_time_limit)
