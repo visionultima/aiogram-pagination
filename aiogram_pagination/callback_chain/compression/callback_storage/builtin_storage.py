@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from .base_storage import BaseCallbackStorage
+from aiogram_pagination.callback_chain.compression.callback_storage.base_storage import BaseCallbackStorage
 from aiogram_pagination.utils.compression.counter import Counter
 
 

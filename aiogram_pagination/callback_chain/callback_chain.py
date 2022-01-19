@@ -1,10 +1,10 @@
-from .callback import PreviousCallback
-from ..callback_chain.base_callback_chain import BaseCallbackStack
-from ..callback_chain.callback_stack.callback_stack import CallbackStack
-from ..utils.callback_stack_factory import CallbackStackFactory
+from aiogram_pagination.callback_chain.callback_stack.callback_stack import CallbackStack
+from aiogram_pagination.callback_chain.base_callback_chain import BaseCallbackChain
+from aiogram_pagination.utils.callback_stack_factory import CallbackStackFactory
+from aiogram_pagination.callback_chain.callback import PreviousCallback
 
 
-class CallbackChain(BaseCallbackStack):
+class CallbackChain(BaseCallbackChain):
 
     def __init__(self, factory: CallbackStackFactory, query: str = None, data: dict = None):
         self.callback = PreviousCallback(factory, query, data)

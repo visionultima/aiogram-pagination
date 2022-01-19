@@ -8,6 +8,9 @@ the preceding callbacks in it.*
 ### INSTALLATION
 
 > pip install aiogram-pagination
+> 
+For Poetry:
+>poetry add aiogram-pagination 
 ***
 
 ### QUICK START
@@ -27,11 +30,11 @@ Simple version:
 ```python
 from aiogram_pagination.callback_chain import CallbackChain
 
-callback_stack = CallbackChain(cb.new(foo=1, bar=2),
-                                     callback_factory=cb)
-callback_stack.next(cb.new('previous', foo='42', bar='624'))
-callback_stack.previous()
-callback_stack.edit_callback_data(cb.new(foo='0', bar='3', previous=''))
+callback_chain = CallbackChain(query=cb.new(foo=1, bar=2),
+                                     factory=cb)
+callback_chain.next(cb.new('previous', foo='42', bar='624'))
+callback_chain.previous()
+callback_chain.edit_current_callback_query(cb.new(foo='0', bar='3', previous=''))
 ```
 
 Version with compression:
@@ -39,9 +42,9 @@ Version with compression:
 ```python
 from aiogram_pagination.callback_chain.compression import CompressedCallbackChain
 
-callback_chain = CompressionCallbackChain(
-    callback_data={'foo': 0, 'bar': 1, previous:''},
-    callback_factory=cb
+callback_chain = CompressedCallbackChain(
+    data={'foo': 0, 'bar': 1, 'previous':''},
+    factory=cb
 )
 
 callback_chain.next(cb.new(foo=2, bar=3))

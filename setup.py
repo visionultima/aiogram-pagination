@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="aiogram-pagination",
-    version="0.1.9",
+    version="0.1.10",
     packages=find_packages(exclude=('tests', 'tests.*', 'examples.*', 'docs',)),
     author="altcode",
     author_email="cosmosx1328@gmail.com",

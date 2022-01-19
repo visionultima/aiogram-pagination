@@ -1,10 +1,10 @@
 {
-  "callback_stack":
-  {
-      "storage": "sqlite",
-      "compression": false,
-      "cache_time_limit": 3600,
-      "max_pagination_depth": null,
-      "redis_db": 1
+  "callback_stack": {
+    "max_pagination_depth": null
+  },
+  "callback_storage": {
+    "storage": "built-in",
+    "cache_time_limit": 3600,
+    "redis_db": 1
   }
 }

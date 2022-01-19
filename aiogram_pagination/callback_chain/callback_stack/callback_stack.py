@@ -1,12 +1,11 @@
 from aiogram_pagination.callback_chain.callback import PreviousCallback
-from aiogram_pagination.data.loader import configurator
+from aiogram_pagination.data.config import config
 
 
 class CallbackStack:
 
     def __init__(self, callback: PreviousCallback):
-        self.configurator = configurator
-        self.config = self.configurator.config
+        self.config = config
         self.callback = callback
         self.previous_callback_data = self.callback.previous_callback_data
 

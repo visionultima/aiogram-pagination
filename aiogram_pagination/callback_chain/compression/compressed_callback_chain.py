@@ -1,17 +1,16 @@
-from aiogram_pagination.callback_chain.base_callback_chain import BaseCallbackStack
 from aiogram_pagination.callback_chain.callback_stack.callback_stack import CallbackStack, PreviousCallback
+from aiogram_pagination.callback_chain.compression.callback_storage import Storages
+from aiogram_pagination.callback_chain.base_callback_chain import BaseCallbackChain
 from aiogram_pagination.utils.callback_stack_factory import CallbackStackFactory
-from aiogram_pagination.data.loader import configurator
-from aiogram_pagination.data.loader import storages
+from aiogram_pagination.data.config import config
 
 
-class CompressedCallbackChain(BaseCallbackStack):
+class CompressedCallbackChain(BaseCallbackChain):
 
     def __init__(self, factory: CallbackStackFactory, query: str = None, data: dict = None):
         self.callback = PreviousCallback(factory, query, data)
-        self.configurator = configurator
-        self.config = self.configurator.config
-        self.storage = storages.get_storage(self.config)
+        self.config = config
+        self.storage = Storages().get_storage(config.storage)
         self.callback_stack = CallbackStack(self.callback)
 
     def next(self, new_current_callback_query: str) -> str:

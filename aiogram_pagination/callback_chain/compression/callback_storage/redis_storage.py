@@ -2,16 +2,15 @@ from datetime import datetime
 
 from redis import Redis
 
-from .base_storage import BaseCallbackStorage
-from aiogram_pagination.data.loader import configurator
 from aiogram_pagination.utils.compression.counter import Counter
+from aiogram_pagination.data.config import config
+from .base_storage import BaseCallbackStorage
 
 
 class RedisCallbackStorage(BaseCallbackStorage):
 
     def __init__(self):
-        self._configurator = configurator
-        self._config = self._configurator.config
+        self._config = config
         self._db = self._config.redis_db
         self._redis = Redis(db=self._db)
         self._counter = Counter()

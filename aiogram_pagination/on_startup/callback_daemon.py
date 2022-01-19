@@ -1,15 +1,15 @@
 import time
 
-from ..data.loader import configurator
-from ..data.loader import storages
+from aiogram_pagination.data.config import config
+from aiogram_pagination.callback_chain.compression.callback_storage import Storages
 
 
 class CallbackDaemon:
 
     def __init__(self):
-        self.configurator = configurator
-        self.cache_time_limit = self.configurator.config['cache_time_limit']
-        self.callback_storage = storages.get_storage(self.configurator.config)
+        self.config = config
+        self.cache_time_limit = self.config.cache_time_limit
+        self.callback_storage = Storages().get_storage(self.config.storage)
 
     def run_callback_daemon(self):
         while True:
